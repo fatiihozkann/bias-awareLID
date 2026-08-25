@@ -1,0 +1,19 @@
+Package: biasawareLID
+Type: Package
+Title: Bias-Aware Detection of Group-Specific Local Item Dependence
+Version: 0.1.0
+Authors@R: person("Fatih", "Ozkan", email = "fatih_ozkan@example.edu",
+    role = c("aut", "cre"))
+Description: Implements the centered bias-aware network psychometric pipeline
+    for detecting local item dependence with group-specific bias awareness:
+    confirmatory factor residualization, signed centering of Yen residual
+    correlations, weighted topological overlap, within-group permutation
+    inference with Benjamini-Hochberg false discovery control, a qualified
+    reference set, a retention-constrained group-disparity penalty, signed
+    reversal diagnostics, designed-truth simulation, and stratified
+    full-pipeline bootstrap stability. Methods described in Ozkan (2026).
+License: MIT + file LICENSE
+Encoding: UTF-8
+Imports: lavaan, Matrix, stats, utils
+Suggests: testthat (>= 3.0.0), qgraph
+RoxygenNote: 7.3.0
