@@ -7,7 +7,7 @@ retention-constrained group-disparity penalty, and signed reversal diagnostics.
 
 ## Install
 ```r
-remotes::install_github("fatiihozkann/biasawareLID")
+remotes::install_github("fatiihozkann/bias-awareLID")
 ```
 
 ## Quick start

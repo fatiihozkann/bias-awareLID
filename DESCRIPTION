@@ -2,7 +2,7 @@ Package: biasawareLID
 Type: Package
 Title: Bias-Aware Detection of Group-Specific Local Item Dependence
 Version: 0.1.0
-Authors@R: person("Fatih", "Ozkan", email = "fozkan@CougarNet.uh.edu",
+Authors@R: person("Fatih", "Ozkan", email = "fozkan@central.uh.edu",
     role = c("aut", "cre"))
 Description: Implements the centered bias-aware network psychometric pipeline
     for detecting local item dependence with group-specific bias awareness:
