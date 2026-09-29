@@ -1,8 +1,8 @@
 Package: biasawareLID
 Type: Package
 Title: Bias-Aware Detection of Group-Specific Local Item Dependence
-Version: 0.1.0
-Authors@R: person("Fatih", "Ozkan", email = "fozkan@CougarNet.uh.edu",
+Version: 0.3.1
+Authors@R: person("Fatih", "Ozkan", email = "fozkan@central.uh.edu",
     role = c("aut", "cre"))
 Description: Implements the centered bias-aware network psychometric pipeline
     for detecting local item dependence with group-specific bias awareness:
@@ -16,4 +16,6 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Imports: lavaan, Matrix, stats, utils
 Suggests: testthat (>= 3.0.0), qgraph
+URL: https://github.com/fatiihozkann/bias-awareLID
+BugReports: https://github.com/fatiihozkann/bias-awareLID/issues
 RoxygenNote: 7.3.0
