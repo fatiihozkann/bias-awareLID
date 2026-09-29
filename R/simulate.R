@@ -7,13 +7,14 @@
 #'
 #' @param N total sample size. @param p number of items.
 #' @param rho residual dependence strength. @param n_groups number of groups.
-#' @param loading common factor loading (default .6). @param seed RNG seed.
+#' @param loading factor loading: a scalar or a length-p vector (heterogeneous loadings). @param seed RNG seed.
 #' @return list: \code{data}, \code{group}, \code{truth} (data frame of
 #'   planted pairs with class and affected group).
 #' @export
 simulate_lid_data <- function(N = 500, p = 20, rho = .3, n_groups = 2,
                               loading = .6, seed = 1) {
   set.seed(seed)
+  lam <- if (length(loading) == 1) rep(loading, p) else { stopifnot(length(loading) == p); loading }
   k_pairs <- max(1, floor(p / 5))
   perm <- sample.int(p, p)
   pairs <- split(perm[1:(2 * k_pairs)], rep(1:k_pairs, each = 2))
@@ -25,13 +26,13 @@ simulate_lid_data <- function(N = 500, p = 20, rho = .3, n_groups = 2,
   sizes[1] <- sizes[1] + N - sum(sizes)
   sim_group <- function(n, active) {
     eta <- stats::rnorm(n)
-    Psi <- diag(1 - loading^2, p)
+    Psi <- diag(1 - lam^2)
     for (pr in active) Psi[pr[1], pr[2]] <- Psi[pr[2], pr[1]] <-
-        rho * (1 - loading^2)
+        rho * sqrt((1 - lam[pr[1]]^2) * (1 - lam[pr[2]]^2))
     ev <- eigen(Psi, symmetric = TRUE)
     Ehalf <- ev$vectors %*% diag(sqrt(pmax(ev$values, 1e-8))) %*% t(ev$vectors)
     E <- matrix(stats::rnorm(n * p), n, p) %*% Ehalf
-    outer(eta, rep(loading, p)) + E
+    outer(eta, lam) + E
   }
   dfl <- vector("list", n_groups)
   for (g in seq_len(n_groups)) {
