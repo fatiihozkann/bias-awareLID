@@ -23,3 +23,19 @@ out-of-range responses (values above 5 on the 1-5 scale) are set to missing in e
 
 Seeds are fixed in every script. The simulation scripts are chunked and restartable
 (`--chunk=i/k --skip-done`).
+
+## Saved output: IMPACT baseline on the cleaned data
+
+`Impact.csv` cannot be shared, so the pair-level output of `empirical/impact_cleaned_analysis.R`
+(B = 20,000, seed = 42, package version 0.3.1) is saved in `empirical/impact_clean/`:
+
+| File | Content |
+|---|---|
+| `impact_permutation_edges.csv` | All 666 item pairs under the within-group permutation reference: unpenalized wTO, signed centered Q3*, permutation p value, group disparity, and the BH, E0 (qualified), and final (retained) indicators |
+| `impact_heterogeneity.csv` | Heterogeneity test for the qualified pairs: disparity P, unadjusted p value, BH decision |
+| `sessionInfo.txt` | R and package versions used for this saved run |
+
+These files give the IMPACT row of the article: groups of 340, 335, and 301 after seven
+out-of-range responses are set to missing; 8 BH-significant pairs, 4 qualified, 4 retained at
+beta* = 0 (X4TS-X22C, X26PG-X27PG, X23PG-X25PG, X24PG-X28PG); mean group disparity .036 over
+all pairs and .039 over qualified pairs; smallest unadjusted heterogeneity p value .11.
