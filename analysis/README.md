@@ -33,6 +33,7 @@ Seeds are fixed in every script. The simulation scripts are chunked and restarta
 |---|---|
 | `impact_permutation_edges.csv` | All 666 item pairs under the within-group permutation reference: unpenalized wTO, signed centered Q3*, permutation p value, group disparity, and the BH, E0 (qualified), and final (retained) indicators |
 | `impact_heterogeneity.csv` | Heterogeneity test for the qualified pairs: disparity P, unadjusted p value, BH decision |
+| `impact_parametric_edges.csv` | The same pair-level table under the parametric reference (15 BH-significant pairs, the same 4 qualified and retained) |
 | `sessionInfo.txt` | R and package versions used for this saved run |
 
 These files give the IMPACT row of the article: groups of 340, 335, and 301 after seven
